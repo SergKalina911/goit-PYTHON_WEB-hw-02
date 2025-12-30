@@ -14,6 +14,8 @@
 - **`pyproject.toml`** — конфігурація Poetry з фіксацією Python 3.13 та залежностей.
 - **`Dockerfile`** — інструкції для створення контейнера з застосунком.
 - **`README.md`** — документація проєкту.
+- **`poetry.lock`** — Цей файл автоматично генерується за допомогою Poetry 2.2.1, і його не можна змінювати вручну.
+- **`database.bin`** — Цей файл автоматично генерується за допомогою main.py, і його не можна змінювати вручну.
 
 ---
 
@@ -61,6 +63,8 @@
 
    ```
 
+---
+
 ## 🐳 Docker
 
 ### Dockerfile
@@ -91,31 +95,33 @@ RUN poetry install --no-root
 ENTRYPOINT ["poetry", "run", "assistant"]
 ```
 
-Кроки
+### Кроки
 
-1.              Створення образу:
+1. Створення образу:
 
-    ```bash
+   ```bash
 
-    docker build -t personal-assistant .
+   docker build -t personal-assistant .
 
-    ```
+   ```
 
-2.            Запуск контейнера в інтерактивному режимі:
+2. Запуск контейнера в інтерактивному режимі:
 
-    ```bash
+   ```bash
 
-    docker run -it personal-assistant /bin/bash
+   docker run -it personal-assistant /bin/bash
 
-    ```
+   ```
 
-3.            Виклик застосунку всередині контейнера:
+3. Виклик застосунку всередині контейнера:
 
-    ```bash
+   ```bash
 
-    poetry run assistant
+   poetry run assistant
 
-    ```
+   ```
+
+---
 
 ## ✅ Критерії виконання
 
