@@ -60,3 +60,66 @@
    poetry run pytest
 
    ```
+
+## 🐳 Docker
+
+### Dockerfile
+
+```bash
+# Базовий образ з Python 3.13
+
+FROM python:3.13-slim
+
+# Встановлюємо Poetry
+
+RUN pip install poetry
+
+# Робоча директорія
+
+WORKDIR /app
+
+# Копіюємо файли проекту
+
+COPY pyproject.toml poetry.lock\* main.py ./
+
+# Встановлюємо залежності
+
+RUN poetry install --no-root
+
+# Команда запуску
+
+ENTRYPOINT ["poetry", "run", "assistant"]
+```
+
+Кроки
+
+1.              Створення образу:
+
+    ```bash
+
+    docker build -t personal-assistant .
+
+    ```
+
+2.            Запуск контейнера в інтерактивному режимі:
+
+    ```bash
+
+    docker run -it personal-assistant /bin/bash
+
+    ```
+
+3.            Виклик застосунку всередині контейнера:
+
+    ```bash
+
+    poetry run assistant
+
+    ```
+
+## ✅ Критерії виконання
+
+1.  Віртуальне середовище створено через Poetry
+2.  Python версія зафіксована у pyproject.toml
+3.  Dockerfile коректний, образ збирається без помилок
+4.  Є можливість взаємодії з CLI застосунком у контейнері
