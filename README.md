@@ -27,7 +27,36 @@
 ### Кроки
 
 1. Ініціалізація проєкту:
+
    ```bash
    poetry init
+
+   ```
+
+2. Встановлення залежностей:
+
+   ```bash
+   poetry install
+
+   ```
+
+3. Запуск застосунку:
+
+   ```bash
+   poetry run python main.py
+
+   ```
+
+4. або через CLI‑скрипт:
+
+   ```bash
+   poetry run assistant
+
+   ```
+
+5. Для тестування (dev‑залежності):
+
+   ```bash
+   poetry run pytest
 
    ```

@@ -1,16 +1,20 @@
-[project]
-name = "\"personal-assistant\""
+[tool.poetry]
+name = "goit-python-web-hw02"
 version = "0.1.0"
-description = "\"CLI бот для управління контактами\""
-authors = [
-    {name = "Serg Kalynychenko",email = "kalinasergey911@gmail.com"}
-]
+description = "CLI бот 'Персональний помічник'"
+authors = ["Сергій <your-email@example.com>"]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-]
+package-mode = false
 
+[tool.poetry.dependencies]
+python = "^3.13"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0"
+
+[tool.poetry.scripts]
+assistant = "main:main"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
