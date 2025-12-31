@@ -49,14 +49,7 @@
 
    ```
 
-4. або через CLI‑скрипт:
-
-   ```bash
-   poetry run assistant
-
-   ```
-
-5. Для тестування (dev‑залежності):
+4. Для тестування (dev‑залежності):
 
    ```bash
    poetry run pytest
@@ -71,28 +64,23 @@
 
 ```bash
 # Базовий образ з Python 3.13
-
 FROM python:3.13-slim
 
 # Встановлюємо Poetry
-
 RUN pip install poetry
 
 # Робоча директорія
-
 WORKDIR /app
 
 # Копіюємо файли проекту
-
-COPY pyproject.toml poetry.lock\* main.py ./
+COPY pyproject.toml poetry.lock* main.py ./
 
 # Встановлюємо залежності
-
 RUN poetry install --no-root
 
-# Команда запуску
+# Запускаємо напряму main.py
+ENTRYPOINT ["poetry", "run", "python", "main.py"]
 
-ENTRYPOINT ["poetry", "run", "assistant"]
 ```
 
 ### Кроки
@@ -101,23 +89,15 @@ ENTRYPOINT ["poetry", "run", "assistant"]
 
    ```bash
 
-   docker build -t personal-assistant .
+   docker build -t assistant:latest .
 
    ```
 
-2. Запуск контейнера в інтерактивному режимі:
+2. Запуск контейнера :
 
    ```bash
 
-   docker run -it personal-assistant /bin/bash
-
-   ```
-
-3. Виклик застосунку всередині контейнера:
-
-   ```bash
-
-   poetry run assistant
+   docker run -it assistant:latest
 
    ```
 

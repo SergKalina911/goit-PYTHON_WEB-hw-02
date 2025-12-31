@@ -2,7 +2,7 @@
 name = "goit-python-web-hw02"
 version = "0.1.0"
 description = "CLI бот 'Персональний помічник'"
-authors = ["Сергій <your-email@example.com>"]
+authors = ["Сергій <kalinasergey@gmail.com>"]
 readme = "README.md"
 package-mode = false
 
@@ -11,9 +11,6 @@ python = "^3.13"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0"
-
-[tool.poetry.scripts]
-assistant = "main:main"
 
 [build-system]
 requires = ["poetry-core"]
